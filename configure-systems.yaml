@@ -3,7 +3,8 @@
   hosts: Ubuntu
   become: yes
 
-  - tasks:
-    - name: call roles
-      hosts: Ubuntu
-      - motd
+  tasks:
+- name: call roles
+  hosts: Ubuntu
+  roles:
+    - motd
