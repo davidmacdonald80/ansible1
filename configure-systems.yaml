@@ -1,0 +1,9 @@
+#playbook to configure multiple roles
+- name: Configure systems
+  hosts: Ubuntu
+  become: yes
+
+  - tasks:
+    - name: call roles
+      hosts: Ubuntu
+      - motd
