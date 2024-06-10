@@ -1,0 +1,24 @@
+- hosts: apt
+  become: true
+
+  tasks:
+    - name: Update the list of available packages
+      apt:
+        update_cache: yes
+
+    - name: Upgrade all installed packages
+      apt:
+        upgrade: dist
+        autoremove: yes
+
+    - name: Clean up package cache
+      apt:
+        autoclean: yes
+
+    - name: Remove unused packages
+      apt:
+        autoremove: yes
+
+    - name: Inform user that the update is complete
+      debug:
+        msg: "System update complete."
