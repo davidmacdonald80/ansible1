@@ -2,10 +2,6 @@
   become: true
 
   tasks:
-    - name: Update the list of available packages
-      apt:
-        update_cache: yes
-
     - name: Upgrade all installed packages
       apt:
         upgrade: dist
