@@ -1,0 +1,19 @@
+- hosts: dnf
+  become: true
+
+  tasks:
+    - name: Dnf clean all
+      command: dnf clean all
+      
+    - name: Upgrade all installed packages
+      dnf:
+        name: "*"
+        state: latest
+
+    - name: Remove unused packages
+      dnf:
+        autoremove: yes
+
+    - name: Inform user that the update is complete
+      debug:
+        msg: "System update complete."
